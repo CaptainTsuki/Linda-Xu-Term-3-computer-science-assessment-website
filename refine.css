@@ -1,0 +1,516 @@
+/* this is the section where i initialize styles that apply to every element on the site*/
+* {
+  box-sizing: border-box;
+  font-family: "Reddit Sans";
+  margin: 0;
+  padding: 0;
+}
+
+/* this is the section where i set all the base colour variables for the night mode switch, when on default setting (light mode)*/
+:root {
+  --bg-color: #fff;
+  --text-color: #000;
+
+  --nav-bg: rgb(95, 165, 231);
+  --card-bg: var(--text-color);
+  --card-text: var(--bg-color);
+  --footer-bg: #3170bf;
+
+  --hover-color: rgb(46, 12, 101);
+}
+
+/* this is the section where i set all the colour variables for the night mode switch when the switch is on dark mode*/
+body.dark {
+  --bg-color: rgb(76, 77, 86);
+  --text-color: #fff;
+
+  --card-bg: rgb(0, 0, 0);
+  --nav-bg: rgb(0, 0, 0);
+  --card-text: #ffffff;
+  --footer-bg: rgb(0, 0, 0);
+
+  --hover-color: rgb(236, 167, 255);
+}
+
+/* this is the section that styles the dark mode button*/
+#darkModeToggle {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  padding: 0.6rem 1rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 999;
+  transition: background 0.3s, color 0.3s;
+}
+
+#darkModeToggle:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+
+/* this is the section where i apply animation to everything so it fades in rather than abrubtly appears*/
+body,
+nav,
+.careercard,
+.end {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.animationstylesection {
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animationstylesection.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* this is the section where i set the colours of all links on the page*/
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-color);
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 110px;
+}
+
+
+/* this is the section where i set the font, font sixe, and font colour i use everwhere*/
+.reddit-sans- {
+  font-family: "Reddit Sans", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+h1,
+h2,
+h3,
+p,
+span,
+li {
+  color: var(--text-color);
+}
+
+/* style for the body (uses variables instead of hex codes so the night mode works)*/
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* style for the divider */
+.divider {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  letter-spacing: 40px;
+}
+
+/* style for the images and a little transition to make them pop out */
+img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 5px;
+}
+
+img:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+/* style for nav bar on desktop viewports  */
+@media (min-width: 768px) {
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-height: 100px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--nav-bg);
+    opacity: 95%;
+    z-index: 100;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    margin: 10px;
+  }
+
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    transition: color 0.3s ease;
+    color: var(--hover-color);
+  }
+
+  nav a.about {
+    font-size: 1.8rem;
+    margin-left: 30px;
+    position: relative;
+    top: -10px;
+  }
+
+  /* style for the hero card, its subelementrs, and image on desktop viewports */
+  #introduction {
+    margin: 150px auto 40px auto;
+    display: flex;
+    overflow: hidden;
+    max-width: 80%;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--nav-bg);
+  }
+
+  .introimage {
+    flex: 1;
+  }
+
+  .introimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .introtext {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .introtext h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+    /* style for each section, its text, and its image grids*/
+  .animationstylesection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 80px 5vw;
+    flex-wrap: wrap;
+  }
+
+  .right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .left {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .left h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .desc {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .CellanimeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .CellanimeGrid img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  /* style for the collage image */
+  #collage {
+    max-width: 300%;
+    width: 80vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+}
+  /* style for the burger button so its hidden on desktop */
+#burger {
+  display: none;
+}
+
+  /* style for the nav bar on mobile viewports */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    background-color: var(--nav-bg);
+    padding: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    z-index: 10;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    list-style: none;
+    opacity: 95%;
+  }
+
+  nav ul.open {
+    display: flex;
+    transform: translateX(0);
+  }
+
+  nav a {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+
+  nav a:hover {
+    transition: color 0.3s ease;
+    color: var(--hover-color);
+  }
+
+  nav ul {
+    padding-top: 6rem;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin-bottom: 1.5rem;
+  }
+
+   /* style for the burger menu icon */
+  #burger {
+    font-size: 2.5rem;
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    left: 1rem;
+    display: block;
+  }
+
+   /* style for the introduction card and its elements on mobile */
+ 
+  #introduction {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-width: 80%;
+    margin: 80px auto 40px auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background-color: var(--nav-bg);
+  }
+
+  .introimage {
+    flex: 1;
+  }
+
+  .introimage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .introtext {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .introtext h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+
+ /* style for each information section */
+  
+  .animationstylesection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 80px 5vw;
+    flex-wrap: wrap;
+    margin-left: 10px;
+  }
+
+ /* flexbox so the text takes up half and the image can take the other half*/
+  .right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .left {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .left h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .desc {
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+ /* style for the image grids and collage*/
+  .CellanimeGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 0;
+  }
+
+  .CellanimeGrid img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    max-height: 100px;
+  }
+
+  #collage {
+    width: 140vw;
+  }
+}
+
+ /* style for the career cards, the grid resizes so no need to write seperate css for each viewport*/
+.careers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.careercard {
+  background-color: var(--card-bg);
+  color: var(--card-text);
+  border-radius: 16px;
+  padding: 20px;
+  width: 280px;
+  height: 400px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.careercard h3,
+.careercard p {
+  color: var(--card-text);
+}
+
+.careercard:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.end {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  padding: 20px 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+
+ /* style for the footer*/
+.end ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0 40px;
+  flex-wrap: wrap;
+}
+
+.end li {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.end li:first-child {
+  text-align: left;
+}
+
+.end li:last-child {
+  text-align: center;
+}
+
+ /* style for videos*/
+iframe {
+  width: 70%;
+  max-width: 70vw;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+ /* extra style for the collage because the size is funny*/
+#collage {
+  width: 100%;
+  max-width: 80vw;
+}
